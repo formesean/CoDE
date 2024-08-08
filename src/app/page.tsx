@@ -3,7 +3,7 @@ import Navbar from "./_components/Navbar";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-8">
-      <Navbar />
+      <Navbar page="home" />
 
       <section className="mt-[2.7rem] flex justify-between w-[1360px]">
         <div className="w-[664px]">

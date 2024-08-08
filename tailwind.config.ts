@@ -23,6 +23,8 @@ const config = {
         hero_img: "url('/hero_bg.svg')",
         pe_1: "url('/past_event_1.svg')",
         pe_2: "url('/past_event_2.svg')",
+        lead_1: "url('/lead_1.svg')",
+        lead_2: "url('/lead_2.svg')",
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
