@@ -2,6 +2,8 @@
 import { useState, useEffect, useRef } from "react";
 import Navbar from "../_components/Navbar";
 
+// To Fix:
+// - showNavbarContent not working properly
 export default function About() {
   const [showNavbarContent, setShowNavbarContent] = useState(true);
   const [pageInView, setPageInView] = useState("page1");
@@ -31,7 +33,7 @@ export default function About() {
         // }
       },
       {
-        threshold: 0.1,
+        threshold: 0.5,
       }
     );
 
