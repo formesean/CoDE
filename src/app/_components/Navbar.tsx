@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Card, CardContent } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 interface NavbarProps {
   page: "home" | "about";
@@ -57,10 +57,10 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
 
         {page === "home" ? (
           <section className="w-full pt-4 flex flex-col items-center justify-center">
-            <h1 className="text-[56px] text-center font-bold w-[733px] leading-[4.5rem]">
+            <h1 className="text-[56px] max-lg:text-[52px] text-center font-bold w-[733px] leading-[4.5rem]">
               Ignite Your Passion for Technology.
             </h1>
-            <h1 className="text-[52px] text-center font-bold w-[733px]">
+            <h1 className="text-[52px] max-lg:text-[48px] text-center font-bold w-[733px]">
               Build. Innovate. Lead.
             </h1>
             <Button className="mt-8">Join us</Button>
@@ -73,7 +73,7 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
                 showContent ? "opacity-100" : "opacity-0"
               } w-full pt-4 flex flex-col items-center justify-center`}
             >
-              <h1 className="text-[56px] text-center font-bold w-[733px] leading-[4.5rem]">
+              <h1 className="text-[56px] max-lg:text-[52px] text-center font-bold w-[733px] leading-[4.5rem]">
                 Discover CoDE - USC: Where Innovation Meets Opportunity
               </h1>
             </section>
