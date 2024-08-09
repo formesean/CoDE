@@ -44,12 +44,12 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
               alt={"Computer Driven Enthusiast's Logo"}
               width={80}
               height={80}
-              className="rounded-2xl"
+              className="rounded-2xl cursor-pointer"
             />
           </div>
 
-          <div className="flex gap-[5rem]">
-            {/* <Link
+          <div className="flex gap-[5rem] max-sm:gap-[1rem]">
+            <Link
               href="/"
               className={`inline-block min-w-[60px] text-center ${
                 currentRoute === "/" ? activePage : inActivePage
@@ -64,9 +64,29 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
               }`}
             >
               About
-            </Link> */}
-            <Menu />
+            </Link>
           </div>
+
+          {/* <div className="flex gap-[5rem] max-md:hidden">
+            <Link
+              href="/"
+              className={`inline-block min-w-[60px] text-center ${
+                currentRoute === "/" ? activePage : inActivePage
+              }`}
+            >
+              Home
+            </Link>
+            <Link
+              href="about"
+              className={`inline-block min-w-[60px] text-center ${
+                currentRoute === "/about" ? activePage : inActivePage
+              }`}
+            >
+              About
+            </Link>
+          </div> */}
+
+          {/* <Menu className={`hidden max-md:block cursor-pointer`} /> */}
         </section>
 
         {page === "home" ? (
