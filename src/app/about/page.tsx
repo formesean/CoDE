@@ -70,15 +70,15 @@ export default function About() {
         {/* Page 1 */}
         <div
           ref={page1Ref}
-          className="snap-start p-8 pt-[27rem] min-h-screen h-screen"
+          className="snap-start p-8 pt-[27rem] max-sm:pt-[19rem] min-h-screen h-screen"
         >
           <div className="mt-[2.7rem] max-lg:mt-[0rem] flex justify-center">
             <div className="w-[1080px] max-lg:w-full">
-              <h1 className="text-[44px] max-lg:text-[28px] text-center font-semibold leading-[3rem] max-lg:leading-[2rem]">
+              <h1 className="text-[44px] max-lg:text-[28px] max-sm:text-[22px] text-center font-semibold leading-[3rem] max-lg:leading-[2rem] max-md:leading-[1.8rem]">
                 Computer Driven Enthusiasts (CoDE) - <br /> University of San
                 Carlos
               </h1>
-              <p className="text-justify mt-10 max-lg:mt-6">
+              <p className="text-justify mt-10 max-lg:mt-6 max-sm:text-[15px]">
                 The Computer Driven Enthusiasts (CoDE) at the University of San
                 Carlos is a dynamic student group dedicated to advancing
                 computer engineering skills. CoDE provides a platform for
@@ -95,19 +95,19 @@ export default function About() {
         {/* Page 2 */}
         <div
           ref={page2Ref}
-          className="snap-start p-8 pt-[13rem] max-lg:pt-[11.5rem] min-h-screen h-screen"
+          className="snap-start p-8 pt-[13rem] max-lg:pt-[11.5rem] max-sm:pt-[10rem] min-h-screen h-screen"
         >
           <div className="flex justify-center">
             <div className="w-[1080px] max-lg:w-full">
-              <h1 className="text-[44px] max-lg:text-[40px] text-center font-semibold leading-[3rem]">
+              <h1 className="text-[44px] max-lg:text-[40px] max-sm:text-[20.5px] text-center font-semibold leading-[3rem] max-sm:leading-[2rem]">
                 Learn About Our Mission and Vision
               </h1>
 
-              <div className="flex flex-col mt-10 max-lg:mt-6 gap-5 max-lg:gap-1 justify-center items-center">
-                <h2 className="text-[40px] max-lg:text-[36px] text-center font-semibold leading-[3rem]">
+              <div className="flex flex-col mt-10 max-lg:mt-6 max-sm:mt-2 gap-5 max-lg:gap-1 max-sm:gap-0 justify-center items-center">
+                <h2 className="text-[40px] max-lg:text-[36px] max-sm:text-[19px] text-center font-semibold leading-[3rem]">
                   Mission
                 </h2>
-                <p className="text-justify w-[850px] max-lg:w-[700px]">
+                <p className="text-justify w-[850px] max-lg:w-[700px] max-sm:w-[350px] max-sm:text-[13px]">
                   Computer Driven Enthusiasts (CoDE) envisions a community
                   employed with efficient and able citizens who would support
                   the appropriate values and doctrines of society. CoDE aims to
@@ -117,11 +117,11 @@ export default function About() {
                 </p>
               </div>
 
-              <div className="flex flex-col mt-10 max-lg:mt-2 gap-5 max-lg:gap-1 justify-center items-center">
-                <h2 className="text-[40px] max-lg:text-[36px] text-center font-semibold leading-[3rem]">
+              <div className="flex flex-col mt-10 max-lg:mt-2 max-sm:mt-2 gap-5 max-lg:gap-1 max-sm:gap-0 justify-center items-center">
+                <h2 className="text-[40px] max-lg:text-[36px] max-sm:text-[19px] text-center font-semibold leading-[3rem]">
                   Vision
                 </h2>
-                <p className="text-justify w-[850px] max-lg:w-[700px]">
+                <p className="text-justify w-[850px] max-lg:w-[700px] max-sm:w-[350px] max-sm:text-[13px]">
                   Computer Driven Enthusiasts (CoDE) is a student organization
                   that helps its members by setting a path directed towards
                   their development of skills and talents in the domain of
@@ -141,20 +141,20 @@ export default function About() {
         {/* Page 3 */}
         <div
           ref={page3Ref}
-          className="snap-start p-8 pt-[12rem] max-lg:pt-[11rem] min-h-screen h-screen"
+          className="snap-start p-8 pt-[12rem] max-lg:pt-[11rem] max-sm:pt-[9.5rem] min-h-screen h-screen"
         >
           <div className="flex flex-col justify-center items-center">
             <div className="flex flex-col gap-1 max-lg:-gap-1">
-              <h1 className="text-[44px] max-lg:text-[36px] text-center font-semibold leading-[3rem]">
+              <h1 className="text-[44px] max-lg:text-[36px] max-sm:text-[20.5px] text-center font-semibold leading-[3rem]">
                 Meet Our Leads & Committee
               </h1>
-              <p className="max-lg:text-sm">
+              <p className="max-lg:text-[14px] max-sm:text-[12px] text-center">
                 Get to know the passionate individuals driving our initiatives
                 and shaping our community.
               </p>
             </div>
 
-            <div className="flex gap-[150px] mt-8">
+            <div className="flex flex-row max-sm:flex-col gap-[150px] max-sm:gap-[50px] mt-8">
               <div className="w-[255px] h-[205.9px] max-lg:w-[210px] max-lg:h-[169.56px] rounded-[12px] bg-lead_1 bg-cover">
                 <div className="w-[240px] mt-[9.5rem] max-lg:mt-[7.5rem] mx-5 flex flex-col justify-end items-start">
                   <p className="text-sm">Software Lead</p>
@@ -169,7 +169,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="flex flex-col mt-6 gap-2 max-lg:gap-0 justify-center items-center">
+            <div className="flex max-sm:hidden flex-col mt-6 gap-2 max-lg:gap-0 justify-center items-center">
               <h3>Committee</h3>
 
               <div className="flex justify-center items-center gap-[250px] max-lg:gap-[200px]">

@@ -4,6 +4,8 @@ import { Card, CardContent } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Menu } from "lucide-react";
+import { useState } from "react";
 
 interface NavbarProps {
   page: "home" | "about";
@@ -18,6 +20,15 @@ const inActivePage =
 
 export default function Navbar({ page, className, showContent }: NavbarProps) {
   const currentRoute = usePathname();
+  const [showMenu, setShowMenu] = useState(false);
+
+  const openMenu = () => {
+    setShowMenu(true);
+  };
+
+  const closeMenu = () => {
+    setShowMenu(false);
+  };
 
   return (
     <Card
@@ -26,17 +37,19 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
       } bg-hero_img bg-no-repeat bg-cover transition-all duration-200`}
     >
       <CardContent>
-        <section className="flex items-center gap-[5rem] w-full">
-          <Image
-            src={"/logo.jpg"}
-            alt={"Computer Driven Enthusiast's Logo"}
-            width={80}
-            height={80}
-            className="rounded-2xl"
-          />
+        <section className="flex items-center justify-start max-md:justify-between gap-[5rem] w-full">
+          <div className="w-[80px] h-[80px] max-md:w-[50px] max-md:h-[50px]">
+            <Image
+              src={"/logo.jpg"}
+              alt={"Computer Driven Enthusiast's Logo"}
+              width={80}
+              height={80}
+              className="rounded-2xl"
+            />
+          </div>
 
           <div className="flex gap-[5rem]">
-            <Link
+            {/* <Link
               href="/"
               className={`inline-block min-w-[60px] text-center ${
                 currentRoute === "/" ? activePage : inActivePage
@@ -51,19 +64,20 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
               }`}
             >
               About
-            </Link>
+            </Link> */}
+            <Menu />
           </div>
         </section>
 
         {page === "home" ? (
           <section className="w-full pt-4 flex flex-col items-center justify-center">
-            <h1 className="text-[56px] max-lg:text-[52px] text-center font-bold w-[733px] leading-[4.5rem]">
+            <h1 className="text-[56px] max-lg:text-[52px] max-md:text-[40px] max-sm:text-[26px] text-center font-bold w-[733px] max-lg:w-full leading-[4.5rem] max-md:leading-[2.5rem]">
               Ignite Your Passion for Technology.
             </h1>
-            <h1 className="text-[52px] max-lg:text-[48px] text-center font-bold w-[733px]">
+            <h1 className="text-[52px] max-lg:text-[48px] max-md:text-[40px] max-sm:text-[24px] text-center font-bold w-[733px] max-lg:w-full">
               Build. Innovate. Lead.
             </h1>
-            <Button className="mt-8">Join us</Button>
+            <Button className="mt-8 max-md:mt-4">Join us</Button>
           </section>
         ) : (
           showContent &&
@@ -73,7 +87,7 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
                 showContent ? "opacity-100" : "opacity-0"
               } w-full pt-4 flex flex-col items-center justify-center`}
             >
-              <h1 className="text-[56px] max-lg:text-[52px] text-center font-bold w-[733px] leading-[4.5rem]">
+              <h1 className="text-[56px] max-lg:text-[52px] max-sm:text-[24px] text-center font-bold w-[733px] max-lg:w-full leading-[4.5rem] max-md:leading-[2.5rem]">
                 Discover CoDE - USC: Where Innovation Meets Opportunity
               </h1>
             </section>
