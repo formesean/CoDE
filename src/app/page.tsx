@@ -5,15 +5,15 @@ export default function Home() {
     <main className="flex w-full min-h-screen flex-col items-center p-8">
       <Navbar page="home" showContent={false} />
 
-      <section className="mt-[2.7rem] max-md:mt-[1.5rem] flex flex-row justify-between items-center w-[1360px] max-lg:w-full max-lg:flex-col max-lg:gap-10">
+      <section className="mt-[2.7rem] max-md:mt-[1.5rem] flex flex-row justify-center items-center gap-6 w-full max-lg:flex-col max-lg:gap-10">
         <div className="w-[664px] max-md:w-full">
-          <h1 className="block max-lg:hidden text-[44px] max-lg:text-[40px] text-left font-semibold w-[502px] leading-[3rem]">
+          <h1 className="block max-xl:hidden text-[44px] max-lg:text-[40px] text-left font-semibold w-[502px] leading-[3rem]">
             Your Journey Begins <span className="text-[40px]">Here</span>
           </h1>
-          <h1 className="hidden max-lg:inline-block text-[44px] max-lg:text-[40px] max-md:text-[28px] max-sm:text-[20px] text-left font-semibold w-full leading-[3rem]">
+          <h1 className="hidden max-xl:inline-block text-[44px] max-lg:text-[40px] max-md:text-[28px] max-sm:text-[20px] text-left font-semibold w-full leading-[3rem]">
             Your Journey Begins Here
           </h1>
-          <p className="text-justify mt-4 max-md:mt-2 max-md:text-[15px] max-sm:text-[12px]">
+          <p className="text-justify mt-4 max-md:mt-2 w-auto max-xl:w-[350px] max-lg:w-auto max-md:text-[15px] max-sm:text-[12px]">
             Join CoDE - USC, where future computer engineers come together to
             turn ideas into reality. Dive into hands-on projects, compete in
             thrilling challenges, and connect with a community that’s shaping
