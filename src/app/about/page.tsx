@@ -70,7 +70,7 @@ export default function About() {
         {/* Page 1 */}
         <div
           ref={page1Ref}
-          className="snap-start p-8 pt-[27rem] max-sm:pt-[19rem] min-h-screen h-screen"
+          className="snap-start p-8 pt-[27rem] max-sm:pt-[19rem] max-[425px]:pt-[15rem] min-h-screen h-screen"
         >
           <div className="mt-[2.7rem] max-lg:mt-[0rem] flex justify-center">
             <div className="w-[1080px] max-lg:w-full">
@@ -95,7 +95,7 @@ export default function About() {
         {/* Page 2 */}
         <div
           ref={page2Ref}
-          className="snap-start p-8 pt-[13rem] max-lg:pt-[11.5rem] max-sm:pt-[10rem] min-h-screen h-screen"
+          className="snap-start p-8 pt-[13rem] max-lg:pt-[11.5rem] max-sm:pt-[10rem] max-[425px]:pt-[8rem] min-h-screen h-screen"
         >
           <div className="flex justify-center">
             <div className="w-[1080px] max-lg:w-full">
@@ -141,7 +141,7 @@ export default function About() {
         {/* Page 3 */}
         <div
           ref={page3Ref}
-          className="snap-start p-8 pt-[12rem] max-lg:pt-[11rem] max-sm:pt-[9.5rem] min-h-screen h-screen"
+          className="snap-start p-8 pt-[12rem] max-lg:pt-[11rem] max-sm:pt-[9.5rem] max-[425px]:pt-[8rem] min-h-screen h-screen"
         >
           <div className="flex flex-col justify-center items-center">
             <div className="flex flex-col gap-1 max-lg:-gap-1">

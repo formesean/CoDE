@@ -32,13 +32,11 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
 
   return (
     <Card
-      className={`${className} flex flex-col w-full ${
-        !showContent ? "pt-5 px-5" : "p-5"
-      } bg-hero_img bg-no-repeat bg-cover transition-all duration-200`}
+      className={`${className} flex flex-col w-full pt-5 px-5 bg-hero_img bg-no-repeat bg-cover transition-all duration-200`}
     >
       <CardContent>
-        <section className="flex items-center justify-start max-md:justify-between gap-[5rem] w-full">
-          <div className="w-[80px] h-[80px] max-md:w-[50px] max-md:h-[50px]">
+        <section className="flex items-center justify-start max-md:justify-between gap-[5rem] max-sm:gap-[4rem] w-full">
+          <div className="w-[80px] h-[80px] max-md:w-[50px] max-md:h-[50px] max-sm:w-[30px] max-sm:h-[30px]">
             <Image
               src={"/logo.jpg"}
               alt={"Computer Driven Enthusiast's Logo"}
@@ -48,10 +46,10 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
             />
           </div>
 
-          <div className="flex gap-[5rem] max-sm:gap-[1rem]">
+          <div className="flex gap-[5rem] max-sm:gap-0">
             <Link
               href="/"
-              className={`inline-block min-w-[60px] text-center ${
+              className={`max-sm:text-sm inline-block min-w-[60px] text-center ${
                 currentRoute === "/" ? activePage : inActivePage
               }`}
             >
@@ -59,7 +57,7 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
             </Link>
             <Link
               href="about"
-              className={`inline-block min-w-[60px] text-center ${
+              className={`max-sm:text-sm inline-block min-w-[60px] text-center ${
                 currentRoute === "/about" ? activePage : inActivePage
               }`}
             >
@@ -91,10 +89,10 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
 
         {page === "home" ? (
           <section className="w-full pt-4 flex flex-col items-center justify-center">
-            <h1 className="text-[56px] max-lg:text-[52px] max-md:text-[40px] max-sm:text-[26px] text-center font-bold w-[733px] max-lg:w-full leading-[4.5rem] max-md:leading-[2.5rem]">
+            <h1 className="text-[56px] max-lg:text-[52px] max-md:text-[40px] max-sm:text-[26px] max-[425px]:text-[20px] text-center font-bold w-[733px] max-lg:w-full leading-[4.5rem] max-md:leading-[2.5rem] max-[425px]:leading-[2rem]">
               Ignite Your Passion for Technology.
             </h1>
-            <h1 className="text-[52px] max-lg:text-[48px] max-md:text-[40px] max-sm:text-[24px] text-center font-bold w-[733px] max-lg:w-full">
+            <h1 className="text-[52px] max-lg:text-[48px] max-md:text-[40px] max-sm:text-[24px] max-[425px]:text-[20px] text-center font-bold w-[733px] max-lg:w-full">
               Build. Innovate. Lead.
             </h1>
             <Button className="mt-8 max-md:mt-4">Join us</Button>
@@ -107,7 +105,7 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
                 showContent ? "opacity-100" : "opacity-0"
               } w-full pt-4 flex flex-col items-center justify-center`}
             >
-              <h1 className="text-[56px] max-lg:text-[52px] max-sm:text-[24px] text-center font-bold w-[733px] max-lg:w-full leading-[4.5rem] max-md:leading-[2.5rem]">
+              <h1 className="text-[56px] max-lg:text-[52px] max-sm:text-[24px] max-[425px]:text-[20px] text-center font-bold w-[733px] max-lg:w-full leading-[4.5rem] max-md:leading-[2.5rem] max-[425px]:leading-[2rem]">
                 Discover CoDE - USC: Where Innovation Meets Opportunity
               </h1>
             </section>
