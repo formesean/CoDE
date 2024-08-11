@@ -8,7 +8,7 @@ import { Menu } from "lucide-react";
 import { useState } from "react";
 
 interface NavbarProps {
-  page: "home" | "about";
+  page: "home" | "about" | "events";
   className?: string;
   showContent: boolean;
 }
@@ -64,6 +64,14 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
               }`}
             >
               About
+            </Link>
+            <Link
+              href="events"
+              className={`max-sm:text-sm inline-block min-w-[60px] text-center ${
+                currentRoute === "/events" ? activePage : inActivePage
+              }`}
+            >
+              Events
             </Link>
           </div>
 
