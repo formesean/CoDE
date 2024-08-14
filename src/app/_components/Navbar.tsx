@@ -112,7 +112,7 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
             </h1>
             <Button className="mt-8 max-md:mt-4" asChild>
               <Link href={joinUsPage} target="_blank">
-                Join us
+                Register Now
               </Link>
             </Button>
           </section>
