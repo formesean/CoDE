@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { useState } from "react";
+import { UserButton } from "@clerk/nextjs";
 
 interface NavbarProps {
   page: "home" | "about" | "events";
@@ -37,43 +38,47 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
       className={`${className} flex flex-col w-full pt-5 px-5 bg-hero_img bg-no-repeat bg-cover transition-all duration-200`}
     >
       <CardContent>
-        <section className="flex items-center justify-start max-md:justify-between gap-[5rem] max-sm:gap-[4rem] w-full">
-          <div className="w-[80px] h-[80px] max-md:w-[50px] max-md:h-[50px] max-sm:w-[30px] max-sm:h-[30px]">
-            <Image
-              src={"/logo.jpg"}
-              alt={"Computer Driven Enthusiast's Logo"}
-              width={80}
-              height={80}
-              className="rounded-2xl cursor-pointer"
-            />
+        <section className="flex items-center justify-between">
+          <div className="flex items-center justify-start max-md:justify-between gap-[5rem] max-sm:gap-[4rem] w-full">
+            <div className="w-[80px] h-[80px] max-md:w-[50px] max-md:h-[50px] max-sm:w-[30px] max-sm:h-[30px]">
+              <Image
+                src={"/logo.jpg"}
+                alt={"Computer Driven Enthusiast's Logo"}
+                width={80}
+                height={80}
+                className="rounded-2xl cursor-pointer"
+              />
+            </div>
+
+            <div className="flex gap-[5rem] max-sm:gap-0">
+              <Link
+                href="/"
+                className={`max-sm:text-sm inline-block min-w-[60px] text-center ${
+                  currentRoute === "/" ? activePage : inActivePage
+                }`}
+              >
+                Home
+              </Link>
+              <Link
+                href="about"
+                className={`max-sm:text-sm inline-block min-w-[60px] text-center ${
+                  currentRoute === "/about" ? activePage : inActivePage
+                }`}
+              >
+                About
+              </Link>
+              <Link
+                href="events"
+                className={`max-sm:text-sm inline-block min-w-[60px] text-center ${
+                  currentRoute === "/events" ? activePage : inActivePage
+                }`}
+              >
+                Events
+              </Link>
+            </div>
           </div>
 
-          <div className="flex gap-[5rem] max-sm:gap-0">
-            <Link
-              href="/"
-              className={`max-sm:text-sm inline-block min-w-[60px] text-center ${
-                currentRoute === "/" ? activePage : inActivePage
-              }`}
-            >
-              Home
-            </Link>
-            <Link
-              href="about"
-              className={`max-sm:text-sm inline-block min-w-[60px] text-center ${
-                currentRoute === "/about" ? activePage : inActivePage
-              }`}
-            >
-              About
-            </Link>
-            <Link
-              href="events"
-              className={`max-sm:text-sm inline-block min-w-[60px] text-center ${
-                currentRoute === "/events" ? activePage : inActivePage
-              }`}
-            >
-              Events
-            </Link>
-          </div>
+          <UserButton />
 
           {/* <div className="flex gap-[5rem] max-md:hidden">
             <Link

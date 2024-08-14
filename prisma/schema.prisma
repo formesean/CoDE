@@ -8,8 +8,9 @@ datasource db {
   directUrl      = env("DIRECT_URL")
 }
 
-model Event {
+model Events {
   event_id Int @id @default(autoincrement())
+  event_description String
   event_status String
   event_name String
   event_date_time DateTime
