@@ -7,7 +7,7 @@ export default function Home() {
         <Navbar page="home" showContent={false} />
       </div>
 
-      <section className="mt-[2.7rem] max-md:mt-[1.5rem] px-8 flex flex-row justify-center items-center gap-6 w-full max-lg:flex-col max-lg:gap-10">
+      <section className="mt-[2.7rem] max-md:mt-[1.5rem] px-8 pb-8 flex flex-row justify-center items-center gap-6 w-full max-lg:flex-col max-lg:gap-10">
         <div className="w-[664px] max-md:w-full">
           <h1 className="block max-xl:hidden text-[44px] max-lg:text-[40px] text-left font-semibold w-[502px] leading-[3rem]">
             Your Journey Begins <span className="text-[40px]">Here</span>
