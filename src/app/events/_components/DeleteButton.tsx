@@ -53,7 +53,7 @@ export default function DeleteButton({ event }: DeleteButtonProps) {
             Delete Event
           </Button>
         </AlertDialogTrigger>
-        <AlertDialogContent>
+        <AlertDialogContent className="w-11/12">
           <AlertDialogHeader>
             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
             <AlertDialogDescription>

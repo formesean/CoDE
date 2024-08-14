@@ -23,7 +23,7 @@ export default function EditButton({ event }: EditButtonProps) {
             Edit Event
           </Button>
         </AlertDialogTrigger>
-        <AlertDialogContent>
+        <AlertDialogContent className="h-[525px] overflow-y-scroll w-11/12">
           <AlertDialogHeader>
             <AlertDialogTitle>Edit {event?.event_name} event</AlertDialogTitle>
             <AlertDialogDescription></AlertDialogDescription>

@@ -58,7 +58,7 @@ export default async function Events() {
                 Add Event
               </Button>
             </AlertDialogTrigger>
-            <AlertDialogContent>
+            <AlertDialogContent className="h-[525px] overflow-y-scroll w-11/12">
               <AlertDialogHeader>
                 <AlertDialogTitle>
                   Add a new event for CoDE - USC
@@ -77,7 +77,7 @@ export default async function Events() {
           {upcomingEvents.length > 0 ? (
             <div className="mb-8">
               <h2 className="text-xl font-bold mb-4">Upcoming Events</h2>
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-5">
                 {upcomingEvents.map((event) => {
                   const eventDateTime = new Date(
                     new Date(event.event_date_time).setDate(
@@ -147,9 +147,9 @@ export default async function Events() {
 
         {/* Previous Events */}
         {finishedEvents.length > 0 && (
-          <div>
+          <div className="mb-8">
             <h2 className="text-xl font-bold mb-4">Previous Events</h2>
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-5">
               {finishedEvents.map((event) => {
                 const eventDateTime = new Date(
                   new Date(event.event_date_time).setDate(
