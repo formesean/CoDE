@@ -41,10 +41,21 @@ import {
   ContextMenuTrigger,
 } from "../../components/ui/context-menu";
 
+interface Event {
+  event_id: number;
+  event_name: string;
+  event_description: string;
+  event_date_time: Date;
+  event_status: string;
+  event_venue: string;
+  event_mode: string;
+  event_registration_link: string;
+}
+
 const prisma = new PrismaClient();
 
 export default async function Events() {
-  const events = await prisma.events.findMany();
+  const events: Event[] = await prisma.events.findMany();
   const user = await currentUser();
   const upcomingEvents = events.filter(
     (event) => event.event_status === "Upcoming"
