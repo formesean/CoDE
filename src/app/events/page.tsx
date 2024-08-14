@@ -1,28 +1,15 @@
 import { PrismaClient } from "@prisma/client";
 import Navbar from "../_components/Navbar";
 import { Button } from "../../components/ui/button";
-import { Input } from "../../components/ui/input";
-import { createEvent, deleteEvent } from "./_actions/actions";
 import { currentUser } from "@clerk/nextjs/server";
 import {
   AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
-  AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "../../components/ui/alert-dialog";
-import { Label } from "../../components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../../components/ui/select";
 import {
   Card,
   CardContent,
@@ -33,24 +20,17 @@ import {
 } from "../../components/ui/card";
 import { Badge } from "../../components/ui/badge";
 import Link from "next/link";
-import { format } from "date-fns";
+import { format } from "date-fns-tz";
 import {
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuTrigger,
 } from "../../components/ui/context-menu";
-
-interface Event {
-  event_id: number;
-  event_name: string;
-  event_description: string;
-  event_date_time: Date;
-  event_status: string;
-  event_venue: string;
-  event_mode: string;
-  event_registration_link: string;
-}
+import EventForm from "./_components/EventForm";
+import EditButton from "./_components/EditButton";
+import { Event } from "../../types";
+import DeleteButton from "./_components/DeleteButton";
 
 const prisma = new PrismaClient();
 
@@ -65,15 +45,13 @@ export default async function Events() {
   );
 
   return (
-    <main className="flex w-full min-h-screen flex-col items-center p-8">
-      <Navbar
-        page="events"
-        showContent={false}
-        className="sticky top-10 bg-background"
-      />
+    <main className="flex min-w-full h-screen flex-col items-center">
+      <div className="w-full pt-8 px-8 sticky top-0 bg-background">
+        <Navbar page="events" showContent={false} />
+      </div>
 
       {user && (
-        <section className="mt-8 w-full">
+        <section className="mt-8 w-full px-8">
           <AlertDialog>
             <AlertDialogTrigger className="w-full" asChild>
               <Button variant="outline" className="text-gray-500 py-10">
@@ -87,109 +65,13 @@ export default async function Events() {
                 </AlertDialogTitle>
                 <AlertDialogDescription></AlertDialogDescription>
               </AlertDialogHeader>
-              <div>
-                <form action={createEvent}>
-                  <div className="grid w-full items-center gap-4">
-                    <div className="flex flex-col space-y-1.5">
-                      <Label htmlFor="event_name">Name</Label>
-                      <Input
-                        id="event_name"
-                        name="event_name"
-                        placeholder="Name of the event"
-                        required
-                      />
-                    </div>
-
-                    <div className="flex flex-col space-y-1.5">
-                      <Label htmlFor="event_description">Description</Label>
-                      <Input
-                        id="event_description"
-                        name="event_description"
-                        placeholder="Description of the event"
-                        required
-                      />
-                    </div>
-
-                    <div className="flex flex-col space-y-1.5">
-                      <Label htmlFor="event_status">Status</Label>
-                      <Select name="event_status" required>
-                        <SelectTrigger id="event_status">
-                          <SelectValue placeholder="Select status" />
-                        </SelectTrigger>
-                        <SelectContent position="popper">
-                          <SelectItem value="Upcoming">Upcoming</SelectItem>
-                          <SelectItem value="Finished">Finished</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div className="flex flex-col space-y-1.5">
-                      <Label>Date & Time</Label>
-                      <Input
-                        id="event_date"
-                        name="event_date"
-                        placeholder="Date of the event (YYYY-MM-DD)"
-                        required
-                      />
-                      <Input
-                        id="event_time"
-                        name="event_time"
-                        placeholder="Start time of the event (HH:mm - Military time)"
-                        required
-                      />
-                    </div>
-
-                    <div className="flex flex-col space-y-1.5">
-                      <Label htmlFor="event_venue">Venue</Label>
-                      <Input
-                        id="event_venue"
-                        name="event_venue"
-                        placeholder="Venue of the event"
-                        required
-                      />
-                    </div>
-
-                    <div className="flex flex-col space-y-1.5">
-                      <Label htmlFor="event_mode">Mode</Label>
-                      <Select name="event_mode" required>
-                        <SelectTrigger id="event_mode">
-                          <SelectValue placeholder="Select mode" />
-                        </SelectTrigger>
-                        <SelectContent position="popper">
-                          <SelectItem value="Face-to-Face">
-                            Face-to-Face
-                          </SelectItem>
-                          <SelectItem value="Online">Online</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div className="flex flex-col space-y-1.5">
-                      <Label htmlFor="event_registration_link">
-                        Registration Link
-                      </Label>
-                      <Input
-                        id="event_registration_link"
-                        name="event_registration_link"
-                        placeholder="Registration Link for the event"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <AlertDialogFooter className="mt-4">
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction type="submit">
-                      Add Event
-                    </AlertDialogAction>
-                  </AlertDialogFooter>
-                </form>
-              </div>
+              <EventForm />
             </AlertDialogContent>
           </AlertDialog>
         </section>
       )}
 
-      <section className="w-full mt-5">
+      <section className="w-full mt-5 px-8">
         {/* Upcoming Events */}
         <div>
           {upcomingEvents.length > 0 ? (
@@ -197,12 +79,19 @@ export default async function Events() {
               <h2 className="text-xl font-bold mb-4">Upcoming Events</h2>
               <div className="grid grid-cols-2 gap-5">
                 {upcomingEvents.map((event) => {
-                  const eventDateTime = new Date(event.event_date_time);
+                  const eventDateTime = new Date(
+                    new Date(event.event_date_time).setDate(
+                      new Date(event.event_date_time).getDate() + 1
+                    )
+                  );
                   const formattedEventDate = format(
                     eventDateTime,
-                    "EEE | MMMM d, yyyy"
+                    "EEE | MMMM d, yyyy",
+                    { timeZone: "Asia/Manila" }
                   );
-                  const formattedEventTime = format(eventDateTime, "h:mm a");
+                  const formattedEventTime = format(eventDateTime, "h:mm a", {
+                    timeZone: "Asia/Manila",
+                  });
 
                   return (
                     <ContextMenu key={event.event_id}>
@@ -224,20 +113,24 @@ export default async function Events() {
                             <h1>Time: {formattedEventTime}</h1>
                             <h1>Venue: {event.event_venue}</h1>
                           </CardContent>
-                          <CardFooter className="flex justify-center items-center">
+                          <CardFooter className="flex justify-center items-center w-full">
                             <Link
                               href={`https://${event.event_registration_link}`}
                               target="_blank"
                             >
-                              <Button>Register</Button>
+                              <Button size={"lg"}>Register</Button>
                             </Link>
                           </CardFooter>
                         </Card>
                       </ContextMenuTrigger>
                       {user && (
                         <ContextMenuContent>
-                          <ContextMenuItem>Edit Event</ContextMenuItem>
-                          <ContextMenuItem>Delete Event</ContextMenuItem>
+                          <ContextMenuItem asChild>
+                            <EditButton event={event} />
+                          </ContextMenuItem>
+                          <ContextMenuItem asChild>
+                            <DeleteButton event={event} />
+                          </ContextMenuItem>
                         </ContextMenuContent>
                       )}
                     </ContextMenu>
@@ -258,12 +151,21 @@ export default async function Events() {
             <h2 className="text-xl font-bold mb-4">Previous Events</h2>
             <div className="grid grid-cols-2 gap-5">
               {finishedEvents.map((event) => {
-                const eventDateTime = new Date(event.event_date_time);
+                const eventDateTime = new Date(
+                  new Date(event.event_date_time).setDate(
+                    new Date(event.event_date_time).getDate() + 1
+                  )
+                );
                 const formattedEventDate = format(
                   eventDateTime,
-                  "EEE | MMMM d, yyyy"
+                  "EEE | MMMM d, yyyy",
+                  {
+                    timeZone: "Asia/Manila",
+                  }
                 );
-                const formattedEventTime = format(eventDateTime, "h:mm a");
+                const formattedEventTime = format(eventDateTime, "h:mm a", {
+                  timeZone: "Asia/Manila",
+                });
 
                 return (
                   <ContextMenu key={event.event_id}>
@@ -289,8 +191,12 @@ export default async function Events() {
                     </ContextMenuTrigger>
                     {user && (
                       <ContextMenuContent>
-                        <ContextMenuItem>Edit Event</ContextMenuItem>
-                        <ContextMenuItem>Delete Event</ContextMenuItem>
+                        <ContextMenuItem asChild>
+                          <EditButton event={event} />
+                        </ContextMenuItem>
+                        <ContextMenuItem asChild>
+                          <DeleteButton event={event} />
+                        </ContextMenuItem>
                       </ContextMenuContent>
                     )}
                   </ContextMenu>

@@ -9,7 +9,7 @@ datasource db {
 }
 
 model Events {
-  event_id Int @id @default(autoincrement())
+  event_id Int @id @default(autoincrement()) @unique
   event_description String
   event_status String
   event_name String
