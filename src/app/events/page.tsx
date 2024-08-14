@@ -139,7 +139,7 @@ export default async function Events() {
               </div>
             </div>
           ) : (
-            <p className="text-center text-gray-500">
+            <p className="text-center text-gray-500 mb-8">
               No upcoming events in CoDE.
             </p>
           )}
