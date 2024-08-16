@@ -39,7 +39,7 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
     >
       <CardContent>
         {/* Desktop Menu */}
-        <section className="flex items-center justify-between max-sm:hidden">
+        <section className="flex items-center justify-between max-md:hidden">
           <div className="flex items-center justify-start max-md:justify-between gap-[5rem] max-sm:gap-[4rem] w-full">
             <div className="w-[80px] h-[80px] max-md:w-[50px] max-md:h-[50px] max-sm:w-[30px] max-sm:h-[30px]">
               <Image
