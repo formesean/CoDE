@@ -18,8 +18,7 @@ const activePage =
   "font-bold border-transparent border-[2.5px] border-b-white transition-all duration-300";
 const inActivePage =
   "hover:font-bold border-transparent border-[2.5px] hover:border-b-white transition-all duration-300";
-const joinUsPage =
-  "https://docs.google.com/forms/d/e/1FAIpQLSfG79uJ0-jXTObNKMnPkmUmLvJWK6QtpMMPEZgcuArKk6nYVA/viewform?usp=sharing";
+const registrationPage = "";
 
 export default function Navbar({ page, className, showContent }: NavbarProps) {
   const currentRoute = usePathname();
@@ -143,11 +142,11 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
             <h1 className="select-none text-[52px] max-lg:text-[48px] max-md:text-[40px] max-sm:text-[24px] max-[425px]:text-[20px] text-center font-bold w-[733px] max-lg:w-full">
               Build. Innovate. Lead.
             </h1>
-            <Button className="mt-8 max-md:mt-4" asChild>
-              <Link href={joinUsPage} target="_blank">
+            {/* <Button className="mt-8 max-md:mt-4" asChild>
+              <Link href={registrationPage} target="_blank">
                 Register Now
               </Link>
-            </Button>
+            </Button> */}
           </section>
         ) : (
           showContent &&
