@@ -9,7 +9,7 @@ import { useState } from "react";
 import { UserButton } from "@clerk/nextjs";
 
 interface NavbarProps {
-  page: "home" | "about" | "events";
+  page: "home" | "about" | "events" | "blog";
   className?: string;
   showContent: boolean;
 }
@@ -60,7 +60,7 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
                 Home
               </Link>
               <Link
-                href="about"
+                href="/about"
                 className={`max-sm:text-sm inline-block min-w-[60px] text-center ${
                   currentRoute === "/about" ? activePage : inActivePage
                 }`}
@@ -68,12 +68,20 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
                 About
               </Link>
               <Link
-                href="events"
+                href="/events"
                 className={`max-sm:text-sm inline-block min-w-[60px] text-center ${
                   currentRoute === "/events" ? activePage : inActivePage
                 }`}
               >
                 Events
+              </Link>
+              <Link
+                href="/blog"
+                className={`max-sm:text-sm inline-block min-w-[60px] text-center ${
+                  currentRoute === "/blog" ? activePage : inActivePage
+                }`}
+              >
+                Blog
               </Link>
             </div>
           </div>
@@ -114,7 +122,7 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
                   Home
                 </Link>
                 <Link
-                  href="about"
+                  href="/about"
                   className={`max-sm:text-sm inline-block min-w-[60px] text-center ${
                     currentRoute === "/about" ? activePage : inActivePage
                   }`}
@@ -122,12 +130,20 @@ export default function Navbar({ page, className, showContent }: NavbarProps) {
                   About
                 </Link>
                 <Link
-                  href="events"
+                  href="/events"
                   className={`max-sm:text-sm inline-block min-w-[60px] text-center ${
                     currentRoute === "/events" ? activePage : inActivePage
                   }`}
                 >
                   Events
+                </Link>
+                <Link
+                  href="/blog"
+                  className={`max-sm:text-sm inline-block min-w-[60px] text-center ${
+                    currentRoute === "/blog" ? activePage : inActivePage
+                  }`}
+                >
+                  Blog
                 </Link>
               </div>
             </div>
