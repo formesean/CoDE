@@ -4,9 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npx prisma db push && npx prisma generate && next build",
+    "build": "npx prisma db push && npx prisma generate && npx contentlayer build && next build",
     "start": "next start",
     "lint": "next lint"
+  },
+  "overrides": {
+    "next-contentlayer": {
+      "next": "$next"
+    }
   },
   "dependencies": {
     "@clerk/nextjs": "^5.3.0",
@@ -21,14 +26,21 @@
     "@supabase/supabase-js": "^2.45.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "contentlayer": "^0.3.4",
     "cookies-next": "^4.2.1",
     "date-fns": "^3.6.0",
     "date-fns-tz": "^3.1.3",
     "lucide-react": "^0.424.0",
     "next": "14.2.5",
+    "next-contentlayer": "^0.3.4",
     "react": "^18",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-pretty-code": "^0.13.2",
+    "rehype-slug": "^6.0.0",
+    "remark-gfm": "^3.0.1",
+    "shiki": "^1.13.0",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7"
   },
