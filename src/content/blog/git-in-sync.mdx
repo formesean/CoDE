@@ -1,0 +1,150 @@
+---
+title: Understanding Git & GitHub Basics
+description: The "Basics of Git and GitHub" workshop teaches students version control and project management skills. It covers tracking changes, managing code, and resolving conflicts to improve documentation and collaboration.
+author: Sean Aguilar
+---
+
+# Git in Sync: Understanding Git & GitHub Basics
+
+**Author:** Sean Aguilar  
+**Published Date:** September Day, 2024
+
+---
+
+Welcome to "Git in Sync" your guide to understanding the basics of Git and GitHub. Whether you're a beginner or just need a refresher, this guide will cover everything from version control concepts to advanced GitHub features.
+
+## Table of Contents
+
+1. [Introduction to Version Control](#introduction-to-version-control)
+2. [Installing Git](#installing-git)
+3. [Basic Git Commands](#basic-git-commands)
+4. [Understanding Git Workflow](#understanding-git-workflow)
+5. [Creating a GitHub Account](#creating-a-github-account)
+6. [Repository Management on GitHub](#repository-management-on-github)
+7. [Branching and Merging Basics](#branching-and-merging-basics)
+8. [Forking and Pull Requests](#forking-and-pull-requests)
+9. [Issues and Project Management](#issues-and-project-management)
+
+## Introduction to Version Control
+
+Version control is a system that records changes to files and directories over time. This allows you to track revisions, collaborate with others, and revert to earlier versions if needed. Key goals of version control systems include:
+
+- **Tracking Changes**: Keep a record of changes made to files, who made them, and why.
+- **Collaboration**: Allow multiple people to work on the same project without overwriting each other's work.
+- **Branching**: Experiment with new features or fixes in isolated branches before merging them into the main project.
+- **Tags**: Mark specific points in history, like releases, with tags.
+
+**Git** is a distributed version control system, meaning every user has a full copy of the project history on their local machine.
+
+## Installing Git
+
+To start using Git, you'll need to install it on your machine. Here's how you can do it on various operating systems:
+
+### On Windows
+
+1. Download the Git installer from the [Git](https://git-scm.com/) website.
+2. Run the installer and follow the prompts. Choose the default settings unless you have specific requirements.
+
+### On macOS
+
+1. Install Git using Homebrew by running the following command in Terminal:
+
+```bash
+brew install git
+```
+
+2. Alternatively, download the Git installer from the Git website and follow the installation instructions.
+
+### On Linux
+
+1. Install Git using your package manager. For example, on Debian-based systems (like Ubuntu), use:
+
+```bash
+sudo apt-get update
+sudo apt-get install git
+```
+
+2. For other distributions, use the appropriate package manager command.
+
+## Basic Git Commands
+
+Here are some essential Git commands to help you get started:
+
+- `git status`: Check the status of your working directory and staging area.
+- `git add <file>`: Stage changes to a file for commit.
+- `git commit -m "message"`: Commit staged changes with a descriptive message.
+- `git log`: View the commit history.
+
+Understanding Git Workflow
+
+Git uses a few key concepts to manage your project's files:
+
+- **Working Directory**: The directory where you make changes to your files.
+- **Staging Area**: A place where you prepare files before committing them.
+- **Repository**: A directory containing all your project's files and history.
+
+The typical workflow involves modifying files in the working directory, staging those changes, committing them to the repository, and eventually pushing them to a remote server.
+
+## Understanding Git Workflow
+
+Git's workflow consists of several key stages and concepts that manage how changes are made to a project:
+
+1. **Working Directory**: This is where you make changes to your files. The working directory contains all the files and folders of your project.
+
+2. **Staging Area**: Also known as the index, this is where you prepare files before committing them. When you use `git add`, changes are moved from the working directory to the staging area.
+
+3. **Repository**: This is where Git stores the project's history and metadata. It includes all the commits, branches, and tags. When you run `git commit`, your changes are saved to the repository.
+
+4. **Commit**: A commit is a snapshot of your project at a given point in time. Each commit has a unique identifier and includes changes made, along with metadata such as the author's information and a commit message.
+
+5. **Branch**: A branch represents an independent line of development. You can create branches to work on new features or fixes without affecting the main project. When you are ready, you can merge the changes from your branch into the main branch.
+
+6. **Merge**: Merging integrates changes from one branch into another. This is typically done to combine feature branches back into the main branch after the feature is complete.
+
+7. **Remote**: A remote repository is a version of your repository hosted on a server. You use commands like `git push` and `git pull` to synchronize your local repository with the remote one.
+
+Here's a typical Git workflow:
+
+1. **Edit Files**: Make changes to files in your working directory.
+2. **Stage Changes**: Use `git add` to move changes to the staging area.
+3. **Commit Changes**: Use `git commit` to save changes to the repository.
+4. **Push Changes**: Use `git push` to upload your changes to a remote repository.
+5. **Pull Changes**: Use `git pull` to fetch and merge changes from a remote repository into your local repository.
+
+## Creating a GitHub Account
+
+1. Go to [GitHub](https://github.com/) and click on "Sign up."
+2. Enter your details, including a username, email address (preferably personal email), and password.
+3. Follow the prompts to verify your email and set up your profile.
+
+## Repository Management on GitHub
+
+Learn how to manage repositories with GitHub:
+
+- Creating a Repository: Click on "New repository" on your GitHub profile to start a new project.
+- Cloning a Repository: Use the command `git clone <repository-url>` to copy a repository to your local machine.
+- Managing Repositories: Use GitHub's web interface to view, edit, and manage your repositories.
+
+## Branching and Merging Basics
+
+Branching allows you to create separate lines of development. To create and switch branches:
+
+- Create a Branch: `git branch <branch-name>`
+- Switch Branches: `git checkout <branch-name>`
+- Merge Branches: `git merge <branch-name>`
+
+Merging integrates changes from different branches into a main branch, typically `main` or `master`.
+
+## Forking and Pull Requests
+
+- **Forking**: Create a personal copy of a repository. Click on "Fork" in the top right of a repository's page.
+- **Pull Requests**: Propose changes to a repository by submitting a pull request. This allows repository maintainers to review and discuss changes before merging.
+
+## Issues and Project Management
+
+GitHub provides tools for managing tasks and projects:
+
+- **Issues**: Track bugs, tasks, and enhancements. Create issues to discuss and manage work.
+- **Projects**: Use GitHub Projects to organize tasks and track progress through Kanban-style boards.
+
+Feel free to explore and use these features to keep your projects organized and efficient.

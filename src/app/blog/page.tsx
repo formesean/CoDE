@@ -31,7 +31,9 @@ export default function Blog() {
                   <CardTitle>{doc.title}</CardTitle>
                   <CardDescription>Written by: {doc.author}</CardDescription>
                 </CardHeader>
-                <CardContent>{doc.description}</CardContent>
+                <CardContent className="text-justify">
+                  {doc.description}
+                </CardContent>
               </Card>
             </a>
           ))}

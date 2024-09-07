@@ -159,7 +159,7 @@ export function Mdx({ code }: MdxProps) {
   const Component = useMDXComponent(code);
 
   return (
-    <div className="mdx bg-background py-8">
+    <div className="mdx bg-background">
       <Component components={components} />
     </div>
   );

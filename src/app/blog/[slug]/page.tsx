@@ -15,11 +15,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const doc = await getDocFromParams(params.slug);
 
   return (
-    <main className="flex min-w-full h-screen flex-col items-center">
-      <div className="w-full pt-8 px-8 sticky top-0 bg-background">
+    <main className="flex flex-col items-center h-screen overflow-hidden">
+      <div className="w-full pt-8 px-8 sticky top-0 z-10">
         <Navbar page="events" showContent={false} />
       </div>
-      <Mdx code={doc.body.code} />
+      <section className="px-40 pt-10 pb-20 overflow-scroll h-screen">
+        <Mdx code={doc.body.code} />
+      </section>
     </main>
   );
 }
