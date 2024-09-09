@@ -19,7 +19,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       <div className="w-full pt-8 px-8 sticky top-0 z-10">
         <Navbar page="events" showContent={false} />
       </div>
-      <section className="px-40 pt-10 pb-20 overflow-scroll h-screen">
+      <section className="px-40 pt-10 pb-20 max-md:px-30 max-sm:px-20 overflow-scroll h-screen">
         <Mdx code={doc.body.code} />
       </section>
     </main>
